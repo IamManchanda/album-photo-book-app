@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="page-index">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
@@ -9,7 +9,7 @@
 import HelloWorld from "@/components/hello-world.vue";
 
 export default {
-  name: "Home",
+  name: "page-index",
   components: {
     HelloWorld,
   },
