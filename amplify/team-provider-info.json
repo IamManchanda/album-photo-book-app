@@ -10,6 +10,11 @@
       "StackName": "amplify-albumphotobookapp-dev-162502",
       "StackId": "arn:aws:cloudformation:eu-west-1:536000418571:stack/amplify-albumphotobookapp-dev-162502/de6ae440-21b0-11eb-a258-0acf0bab41c7",
       "AmplifyAppId": "dv9rv9k5ilh9a"
+    },
+    "categories": {
+      "auth": {
+        "albumphotobookapp67936b86": {}
+      }
     }
   }
 }

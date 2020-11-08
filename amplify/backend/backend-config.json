@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "albumphotobookapp67936b86": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
