@@ -5,6 +5,7 @@ import App from "./app.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import "./assets/styles/scss/app.scss";
 import "./assets/styles/scss/tailwind.scss";
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
