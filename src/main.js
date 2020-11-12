@@ -1,18 +1,17 @@
 // https://github.com/aws-amplify/amplify-js/issues/6756#issuecomment-710100373
 
-import { createApp } from "vue";
-import App from "./app.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
-import "./assets/styles/scss/app.scss";
-import "./assets/styles/scss/tailwind.scss";
-import Amplify from "aws-amplify";
-import awsExports from "./aws-exports";
 import {
   applyPolyfills,
   defineCustomElements,
 } from "@aws-amplify/ui-components/loader";
+import Amplify from "aws-amplify";
+import { createApp } from "vue";
+import App from "./app.vue";
+import "./assets/styles/scss/app.scss";
+import awsExports from "./aws-exports";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
 /* import "@aws-amplify/ui-vue"; */
 
 applyPolyfills().then(() => {

@@ -1,13 +1,17 @@
 <template>
   <div class="page-index">
-    <h1 class="text-xl">Hello World</h1>
+    <login-container />
   </div>
 </template>
 
 <script>
+import LoginContainer from "@/components/login-container";
+
 export default {
   name: "page-index",
-  components: {},
+  components: {
+    LoginContainer,
+  },
 };
 </script>
 

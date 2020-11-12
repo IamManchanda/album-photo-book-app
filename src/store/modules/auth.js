@@ -1,7 +1,7 @@
 import { Auth } from "aws-amplify";
 
 export const auth = {
-  namespace: true,
+  namespaced: true,
   state: {
     user: null,
   },
@@ -24,7 +24,6 @@ export const auth = {
 
         const userInfo = await Auth.currentUserInfo();
         commit("setUser", userInfo);
-
         return Promise.resolve("Success");
       } catch (error) {
         console.log(error);
