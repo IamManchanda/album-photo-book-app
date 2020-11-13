@@ -1,6 +1,23 @@
 <template>
   <div class="component-navbar-container">
     <ul class="flex justify-end">
+      <template v-if="authInitiated && !user">
+        <li class="mr-6">
+          <router-link to="/">
+            <a class="text-blue-500 hover:text-blue-800 cursor-pointer">
+              Login
+            </a>
+          </router-link>
+        </li>
+        <li class="mr-6">
+          <router-link to="/signup">
+            <a class="text-blue-500 hover:text-blue-800 cursor-pointer">
+              Sign Up
+            </a>
+          </router-link>
+        </li>
+      </template>
+
       <template v-if="user">
         <li class="mr-6">
           <div class="font-semibold text-black-500">
@@ -23,23 +40,6 @@
           </div>
         </li>
       </template>
-
-      <template v-else>
-        <li class="mr-6">
-          <router-link to="/">
-            <a class="text-blue-500 hover:text-blue-800 cursor-pointer">
-              Login
-            </a>
-          </router-link>
-        </li>
-        <li class="mr-6">
-          <router-link to="/signup">
-            <a class="text-blue-500 hover:text-blue-800 cursor-pointer">
-              Sign Up
-            </a>
-          </router-link>
-        </li>
-      </template>
     </ul>
   </div>
 </template>
@@ -53,6 +53,12 @@ import { useRouter } from "vue-router";
 
 export default {
   name: "component-navbar-container",
+  props: {
+    authInitiated: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     //#region useComposables
     const store = useStore();
