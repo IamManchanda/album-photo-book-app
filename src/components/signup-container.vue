@@ -20,7 +20,7 @@
             placeholder="Enter Code"
             id="code"
           />
-          <button class="btn-blue mt-4" @click="confirmSignUp">
+          <button class="btn-blue mt-4" @click="confirmSignup">
             Confirm Code
           </button>
         </div>
@@ -29,7 +29,7 @@
 
     <template v-else>
       <h1 class="text-gray-700 text-xl font-bold">Signup</h1>
-      <form class="flex flex-col items-center" @submit.prevent="signUp">
+      <form class="flex flex-col items-center" @submit.prevent="signup">
         <div class="flex flex-col mt-4">
           <label
             class="block text-gray-700 text-left text-sm font-bold mb-2"
