@@ -4,19 +4,19 @@
       <template v-if="user">
         <li class="mr-6">
           <div class="font-semibold text-black-500">
-            Welcome {{ user.username }}
+            Welcome @{{ user.username }}
           </div>
         </li>
         <li class="mr-6">
           <router-link to="/albums">
-            <div class="text-blue-500 hover:text-blue-800 cursor-pointer">
+            <a class="text-blue-500 hover:text-blue-800 cursor-pointer">
               Albums
-            </div>
+            </a>
           </router-link>
         </li>
         <li class="mr-6">
           <div
-            class="text-blue-500 hover:text-blue-800 cursor-pointer"
+            class="text-blue-500 hover:text-blue-800 cursor-pointer logout"
             @click="logout"
           >
             Logout
@@ -94,9 +94,9 @@ export default {
 .component-navbar-container {
   padding: 1.5rem;
 
-  a {
+  a,
+  .logout {
     font-weight: bold;
-    color: #2c3e50;
 
     &.router-link-exact-active {
       color: #42b983;
