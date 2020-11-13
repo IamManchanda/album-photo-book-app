@@ -5,7 +5,9 @@
 </template>
 
 <script>
+//#region Imports
 import SignupContainer from "@/components/signup-container";
+//#endregion
 
 export default {
   name: "page-signup",

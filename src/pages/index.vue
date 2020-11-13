@@ -5,7 +5,9 @@
 </template>
 
 <script>
+//#region Imports
 import LoginContainer from "@/components/login-container";
+//#endregion
 
 export default {
   name: "page-index",
