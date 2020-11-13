@@ -44,6 +44,7 @@
 //#region Imports
 import { reactive, toRefs } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 //#endregion
 
 export default {
@@ -51,6 +52,7 @@ export default {
   setup() {
     //#region useComposables
     const store = useStore();
+    const router = useRouter();
     //#endregion
 
     //#region Reactive References
@@ -75,6 +77,8 @@ export default {
           username: state.username,
           password: state.password,
         });
+
+        router.push("/albums");
       } catch (error) {
         console.log(error);
         state.error = error;
