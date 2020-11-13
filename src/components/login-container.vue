@@ -11,6 +11,7 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          :class="error ? 'border-red-500' : ''"
           type="text"
           v-model="username"
           placeholder="Enter Username"
@@ -26,16 +27,16 @@
         </label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          :class="error ? 'border-red-500' : ''"
           type="password"
           v-model="password"
           placeholder="Enter Password"
           id="password"
         />
       </div>
-      <!-- eslint-disable -->
       <button class="btn-blue mt-4">Sign in</button>
     </form>
-    <div class="text-red-600">{{ error.message }}</div>
+    <div class="text-red-600 mt-4">{{ error?.message }}</div>
   </div>
 </template>
 
@@ -57,7 +58,7 @@ export default {
       username: "",
       password: "",
       email: "",
-      error: "",
+      error: null,
     });
     //#endregion
 

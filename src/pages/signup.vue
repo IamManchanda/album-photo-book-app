@@ -1,12 +1,17 @@
 <template>
   <div class="page-signup">
-    <h1 class="text-xl">Hello World</h1>
+    <signup-container />
   </div>
 </template>
 
 <script>
+import SignupContainer from "@/components/signup-container";
+
 export default {
   name: "page-signup",
+  components: {
+    SignupContainer,
+  },
 };
 </script>
 
