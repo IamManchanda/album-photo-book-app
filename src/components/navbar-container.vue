@@ -92,5 +92,15 @@ export default {
 
 <style scoped lang="scss">
 .component-navbar-container {
+  padding: 1.5rem;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
