@@ -16,13 +16,14 @@ export const albumInfo = {
     },
   },
   actions: {
-    createAlbum: async (_context, payload) => {
+    createAlbum: async ({ dispatch }, payload) => {
       try {
         await API.graphql(
           graphqlOperation(createAlbumMutation, {
             input: payload,
           }),
         );
+        await dispatch("listAlbums");
       } catch (error) {
         console.log(error);
       }
@@ -35,7 +36,7 @@ export const albumInfo = {
       );
     },
     listAlbums: async ({ commit }, _payload) => {
-      const albumsData = API.graphql(graphqlOperation(listAlbumsQuery));
+      const albumsData = await API.graphql(graphqlOperation(listAlbumsQuery));
       commit("setAlbums", albumsData.data.listAlbums.items);
     },
   },
