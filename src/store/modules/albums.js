@@ -39,6 +39,9 @@ export const albumInfo = {
       const albumsData = await API.graphql(graphqlOperation(listAlbumsQuery));
       commit("setAlbums", albumsData.data.listAlbums.items);
     },
+    resetAlbums: ({ commit }, _payload) => {
+      commit("setAlbums", null);
+    },
   },
   getters: {
     albums: state => state.albums,

@@ -81,6 +81,7 @@ export default {
     async function logout() {
       try {
         await store.dispatch("auth/logout");
+        await store.dispatch("albumInfo/resetAlbums");
         router.push("/");
       } catch (error) {
         console.log(error);
