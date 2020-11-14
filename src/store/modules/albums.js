@@ -1,9 +1,14 @@
-import { API, graphqlOperation } from "aws-amplify";
-import { createAlbum as createAlbumMutation } from "../../graphql/mutations";
+import { API, graphqlOperation, Storage } from "aws-amplify";
+import {
+  createAlbum as createAlbumMutation,
+  createPhoto as createPhotoMutation,
+} from "../../graphql/mutations";
 import {
   getAlbum as getAlbumQuery,
   listAlbums as listAlbumsQuery,
 } from "../../graphql/queries";
+import { uuid } from "uuidv4";
+import awsExports from "../../aws-exports";
 
 export const albumInfo = {
   namespaced: true,
@@ -41,6 +46,47 @@ export const albumInfo = {
     },
     resetAlbums: ({ commit }, _payload) => {
       commit("setAlbums", null);
+    },
+    createPhoto: async (_context, payload) => {
+      const {
+        aws_user_files_s3_bucket: bucket,
+        aws_user_files_s3_bucket_region: region,
+      } = awsExports;
+      const { file, type: mimeType, id } = payload;
+      const extension = file.name.substr(file.name.lastIndexOf(".") + 1);
+      const photoId = uuid();
+      const key = `images/${photoId}.${extension}`;
+
+      const inputData = {
+        id: photoId,
+        photoAlbumId: id,
+        contentType: mimeType,
+        fullsize: {
+          key,
+          region,
+          bucket,
+        },
+      };
+
+      try {
+        await Storage.put(key, file, {
+          level: "protected",
+          contentType: mimeType,
+          metadata: {
+            albumId: id,
+            photoId,
+          },
+        });
+
+        await API.graphql(
+          graphqlOperation(createPhotoMutation, { input: inputData }),
+        );
+
+        return Promise.resolve("Success");
+      } catch (error) {
+        console.log(error);
+        return Promise.reject(error);
+      }
     },
   },
   getters: {
