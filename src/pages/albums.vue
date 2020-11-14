@@ -1,6 +1,6 @@
 <template>
   <div class="page-albums">
-    <h1 class="text-2xl">Create an Album</h1>
+    <h1 class="text-3xl font-semibold">Create an Album</h1>
     <div class="flex flex-col m-auto w-64">
       <input
         class="my-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
@@ -12,7 +12,7 @@
     </div>
     <div class="text-red-500">{{ error }}</div>
     <hr />
-    <h5 class="mt-4 text-2xl">List Of Albums</h5>
+    <h2 class="mt-4 text-2xl">List Of Albums</h2>
     <div class="flex flex-wrap w-full m-auto justify-center">
       <div
         v-for="(album, idx) in albums"
