@@ -39,7 +39,7 @@
           :img-key="photo.thumbnail ? photo.thumbnail.key : photo.fullsize.key"
           class="w-4/12"
         ></amplify-s3-image>
-        <div v-if="photo.createdAt && photo.gps">
+        <div class="mt-2" v-if="photo.createdAt && photo.gps">
           <ul>
             <li>Created At {{ photo.createdAt }}</li>
             <li>
